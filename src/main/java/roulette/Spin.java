@@ -1,5 +1,6 @@
 package roulette;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -12,10 +13,11 @@ public class Spin {
             27, 10, 25, 29, 12, 8, 19, 31, 18, 6,
             21, 33, 16, 4, 23, 35, 14, 2));
 
-    public int roll(){
-        Random random = new Random();
-        int randomIndex = random.nextInt(americanRouletteNumbers.size());
+    public int roll() {
+        SecureRandom secureRandom = new SecureRandom();
+        int randomIndex = secureRandom.nextInt(americanRouletteNumbers.size());
         int randomNumber = americanRouletteNumbers.get(randomIndex);
+        System.out.println("The winning number was: " + randomNumber);
         return randomNumber;
     }
 }
