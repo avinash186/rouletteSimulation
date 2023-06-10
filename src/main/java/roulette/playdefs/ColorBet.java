@@ -1,5 +1,7 @@
 package roulette.playdefs;
 
+import roulette.Bank;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -10,21 +12,29 @@ public class ColorBet {
 
     public int red (int bet, int winningNumber) {
         int payout = 0;
+        Bank.betAmount(bet);
+
         if (red.contains(winningNumber)) {
             payout = bet * 2;
         } else {
             payout = 0;
         }
+        System.out.println("The winning number was: " + winningNumber+ "\nYou bet $" + Bank.getBet() + " on red "
+                + " and won $" + payout + ".");
         return payout;
     }
 
     public int black (int bet, int winningNumber) {
         int payout = 0;
+        Bank.betAmount(bet);
+
         if (black.contains(winningNumber)) {
             payout = bet * 2;
         } else {
             payout = 0;
         }
+        System.out.println("The winning number was: " + winningNumber+ "\nYou bet $" + Bank.getBet() + " on black "
+                + " and won $" + payout + ".");
         return payout;
     }
 }
