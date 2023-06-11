@@ -17,7 +17,7 @@ public class Spin {
         SecureRandom secureRandom = new SecureRandom();
         int randomIndex = secureRandom.nextInt(americanRouletteNumbers.size());
         int randomNumber = americanRouletteNumbers.get(randomIndex);
-        System.out.println("The winning number was: " + randomNumber);
+        System.out.println("The winning number was: " + randomNumber + "\n--------------------------------");
         return randomNumber;
     }
 }

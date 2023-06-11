@@ -34,4 +34,12 @@ public class Bank {
     public static int getEarnings() {
         return earnings;
     }
+
+    public static boolean fundsAvailable() {
+        if (balance - bet >= 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

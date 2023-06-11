@@ -9,16 +9,17 @@ public class CommonUtils {
         String boldTextStart = "\u001B[1m";
         String resetText = "\u001B[0m";
 
-        System.out.println("\nYou bet $" + Bank.getThisBet(bet) + " on " + underlineTextStart + boldTextStart + play.toUpperCase()  + resetText
-                + " and won $" + payout + ".");
+        System.out.println("You bet $" + Bank.getThisBet(bet) + " on " + underlineTextStart + boldTextStart + play.toUpperCase()  + resetText
+                + " and won $" + payout + "." +
+                "\n--------------------------------");
     }
 
     public static void printBalance(){
-        System.out.println("\nYour balance is $" + Bank.getBalance() + ".");
+        System.out.println("\nYour starting balance is $" + Bank.getBalance() + ".");
     }
 
     public static void printTotalBet(){
-        System.out.println("\nTotal Bet: $" + Bank.getBet() + " ");
+        System.out.println("Total Bet: $" + Bank.getBet());
 
         if (Bank.getEarnings() > 0) {
             System.out.println("You gained $" + Bank.getEarnings() + "!");
@@ -28,6 +29,6 @@ public class CommonUtils {
             System.out.println("You broke even!");
         }
 
-        System.out.println("Your balance is $" + Bank.getBalance() + ".");
+        System.out.println("Your ending balance is $" + Bank.getBalance() + ".");
     }
 }
