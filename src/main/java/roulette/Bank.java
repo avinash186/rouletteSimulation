@@ -1,8 +1,7 @@
 package roulette;
 public class Bank {
-    private static int balance = 100;
+    private static int balance = 200;
     private static int bet = 0;
-
     private static int earnings = 0;
 
     public static void betAdd(int amount) {
@@ -41,5 +40,15 @@ public class Bank {
         } else {
             return false;
         }
+    }
+
+    public static void reset() {
+        if (earnings < 0){
+            Main.setLoss(true);
+        } else if (earnings > 0){
+            Main.setLoss(false);
+        }
+        bet = 0;
+        earnings = 0;
     }
 }

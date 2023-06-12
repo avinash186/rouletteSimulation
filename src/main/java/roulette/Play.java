@@ -11,24 +11,43 @@ public class Play {
     public static DozenBet dozenBet = new DozenBet();
     public static StraightBet straightBet = new StraightBet();
     public static StreetBet streetBet = new StreetBet();
+    public static CornerBet cornerBet = new CornerBet();
+
+    public static DoubleStreetBet doubleStreetBet = new DoubleStreetBet();
     public static Spin spin = new Spin();
+    private static int multiplier = 2;
     private static int winningNumber;
 
+    public static int betA = 10;
 
-    public static void play(){
+    public static int betB = 1;
+
+
+    public static void play(int betMultiplier){
         CommonUtils.printBalance();
         winningNumber = spin.roll();
+
+        // Initiate Bet Amounts
+        betA = 5;
+        betB = 0;
+
+        int betAFinal = betA * betMultiplier;
+
         //Place Bets Here
-        colorbet.black(20, winningNumber);
-        evenOddBet.even(10, winningNumber);
-        highLowBet.high(30, winningNumber);
-        columnBet.c2(20, winningNumber);
-        dozenBet.d1(10, winningNumber);
-        straightBet.straightBet(5, 33, winningNumber);
-        streetBet.streetBet(5, "1", winningNumber);
+        cornerBet.cornerBet(betAFinal,"1",winningNumber);
+        cornerBet.cornerBet(betAFinal,"5",winningNumber);
+        cornerBet.cornerBet(betAFinal,"9",winningNumber);
+        cornerBet.cornerBet(betAFinal,"13",winningNumber);
+        cornerBet.cornerBet(betAFinal,"17",winningNumber);
+        cornerBet.cornerBet(betAFinal,"21",winningNumber);
+        straightBet.straightBet(betAFinal,33,winningNumber);
+        straightBet.straightBet(betAFinal,12,winningNumber);
+
+
+
         //End Bets
         Bank.setBalance();
         CommonUtils.printTotalBet();
-        System.exit(1);
+        Bank.reset();
     }
 }
